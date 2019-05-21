@@ -6,13 +6,13 @@ $.getJSON("/headlines", function(data) {
   }
 });
 
-  $(document).on("click", "p", function() {
-    $("#comments").empty();
-
 // MODAL box for comments
 // $("#commentModal").on("click", "p", function() {
 //   $("#comments").empty();
 // });
+
+  $(document).on("click", "p", function() {
+    $("#comments").empty();
 
   var thisId = $(this).attr("data-id");
 
@@ -26,7 +26,8 @@ $.getJSON("/headlines", function(data) {
     $("#comments").append("<input id='titleinput' name='title' >");
     $("#comments").append("<textarea id='bodyinput' name='body'></textarea>");
     $("#comments").append("<button data-id='" + data._id + "' id='savecomment'>Add New Comment</button>");
-
+    $("#comments").append("<button data-id='" + data._id + "' id='deletecomment'>Delete Comment</button>");
+    
 // If there is a Comment ===================
     if (data.comment) {
       $("#titleinput").val(data.comment.title);
@@ -35,10 +36,10 @@ $.getJSON("/headlines", function(data) {
   });
 });
 
+// POST request to add/change comment =======
 $(document).on("click", "#savecomment", function() {
   var thisId = $(this).attr("data-id");
 
-// POST request to change the comment
   $.ajax({
     method: "POST",
     url: "/headlines/" + thisId,
@@ -55,3 +56,34 @@ $(document).on("click", "#savecomment", function() {
     $("#titleinput").val("");
     $("#bodyinput").val("");
 });
+
+// REMOVE request to add/change comment =======
+$(document).on("click", "#deletecomment", function() {
+
+  $("#titleinput").val("");
+  $("#bodyinput").val("");
+
+    var thisId = $(this).attr("data-id");
+
+    $.ajax({
+      type: "PUT",
+      url: "/delete/" + thisId,
+
+      success: function(response) {
+        thisId.remove();
+
+      }
+    })
+});
+
+      // $.ajax({
+      //   method: "PUT",
+      //   url: "/headlines/" + thisId,
+      //   data: {
+      //     title: $("#titleinput").val(""),
+      //     body: $("#bodyinput").val("")
+      //   },
+      //   success: function() {
+      //     console.log("Comment Deleted");
+      //   }
+      // })

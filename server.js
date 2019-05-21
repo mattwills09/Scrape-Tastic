@@ -22,7 +22,7 @@ app.use(express.json());
 app.use(express.static("public"));
 
 // Connect to Mongo DB ============
-mongoose.connect("mongodb://localhost/unit18Populater", { useNewUrlParser: true });
+mongoose.connect("mongodb://localhost/scrapetastic", { useNewUrlParser: true });
 
 // Routes =====================================
 // GET route for scraping ==============
@@ -50,7 +50,7 @@ app.get("/scrape", function(req, res) {
   });
 });
 
-// GET ALL Articles ====================
+// GET ALL Headlines ====================
 app.get("/headlines", function(req, res) {
   db.Headline.find({})
     .then(function(dbHeadline) {
@@ -61,7 +61,7 @@ app.get("/headlines", function(req, res) {
     });
 });
 
-// GET Specific Article by ID: ==========
+// GET Specific Headline by ID: ==========
 app.get("/headlines/:id", function(req, res) {
   db.Headline.findOne({ _id: req.params.id })
     .populate("comment")
@@ -85,6 +85,48 @@ app.post("/headlines/:id", function(req, res) {
     .catch(function(err) {
       res.json(err);
     });
+});
+
+//===============================================================
+
+// GET ALL Comments ====================
+app.get("/comments", function(req, res) {
+  db.Comment.find({})
+    .then(function(dbComment) {
+      res.json(dbComment);
+    })
+    .catch(function(err) {
+      res.json(err);
+    });
+});
+
+// GET Specific Comment by ID: ==========
+app.get("/comments/:id", function(req, res) {
+  db.Comment.findOne({ _id: req.params.id })
+    .populate("headline")
+    .then(function(dbComment) {
+      res.json(dbComment);
+    })
+    .catch(function(err) {
+      res.json(err);
+    });
+});
+
+// DELETE Specific Comment by ID: ==========
+app.get("/comments/:id", function(req, res) {
+  db.Comment.deleteOne({ 
+    _id: req.params.id }, { comment: dbComment._id }, { new: true }),
+
+    function(error, removed) {
+      if (error) {
+        console.log(error);
+        res.send(error);
+      }
+      else {
+        console.log(removed);
+        res.send(removed);
+      }
+    }
 });
 
 // Starting the Server =====================
