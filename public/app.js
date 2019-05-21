@@ -6,8 +6,14 @@ $.getJSON("/headlines", function(data) {
   }
 });
 
-$(document).on("click", "p", function() {
-  $("#comments").empty();
+  $(document).on("click", "p", function() {
+    $("#comments").empty();
+
+// MODAL box for comments
+// $("#commentModal").on("click", "p", function() {
+//   $("#comments").empty();
+// });
+
   var thisId = $(this).attr("data-id");
 
   $.ajax({
