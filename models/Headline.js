@@ -6,7 +6,8 @@ var Schema = mongoose.Schema;
 var HeadlineSchema = new Schema({
   title: {
     type: String,
-    required: true
+    required: true,
+    unique: true
   },
   link: {
     type: String,
