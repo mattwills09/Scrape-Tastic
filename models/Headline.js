@@ -13,6 +13,11 @@ var HeadlineSchema = new Schema({
     type: String,
     required: true
   },
+  body: {
+    type: String,
+    required: true,
+    
+  },
   comment: {
     type: Schema.Types.ObjectId,
     ref: "Comment"

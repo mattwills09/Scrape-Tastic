@@ -42,6 +42,7 @@ app.get("/scrape", function(req, res) {
 
       result.title = $(this).children("a").text();
       result.link = $(this).children("a").attr("href");
+      result.body = $(this).children("a").text();
 
       db.Headline.create(result)
         .then(function(dbHeadline) {
