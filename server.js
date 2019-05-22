@@ -1,16 +1,27 @@
 
+require('dotenv').config();
+
+// Require Models ================
+const db = require("./models");
+
+const PORT = process.env.PORT || 7000;
+
 var express = require("express");
 var logger = require("morgan");
 var mongoose = require("mongoose");
 
+// Connect to Mongo DB ============
+// If deployed, use the deployed database. Otherwise use the local mongoHeadlines database
+
+mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true });
+
+// var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/scrapetastic";
+// mongoose.connect(MONGODB_URI);
+// mongoose.connect("mongodb://localhost/scrapetastic", { useNewUrlParser: true });
+
 // Scraping Tools ================
 var axios = require("axios");
 var cheerio = require("cheerio");
-
-// Require Models ================
-var db = require("./models");
-
-var PORT = 7000;
 
 var app = express();
 
@@ -20,14 +31,6 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 app.use(express.static("public"));
-
-// Connect to Mongo DB ============
-// If deployed, use the deployed database. Otherwise use the local mongoHeadlines database
-var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/scrapetastic";
-
-mongoose.connect(MONGODB_URI);
-
-// mongoose.connect("mongodb://localhost/scrapetastic", { useNewUrlParser: true });
 
 // Routes =====================================
 // GET route for scraping ==============
