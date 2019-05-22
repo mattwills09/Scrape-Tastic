@@ -25,10 +25,9 @@ app.use(express.static("public"));
 // If deployed, use the deployed database. Otherwise use the local mongoHeadlines database
 var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/scrapetastic";
 
-mongoose.connect("mongodb://localhost/scrapetastic", { useNewUrlParser: true });
-
-
 mongoose.connect(MONGODB_URI);
+
+// mongoose.connect("mongodb://localhost/scrapetastic", { useNewUrlParser: true });
 
 // Routes =====================================
 // GET route for scraping ==============
