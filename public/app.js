@@ -28,7 +28,7 @@ $.getJSON("/headlines", function(data) {
     $("#comments").append("<button data-id='" + data._id + "' id='savecomment'>Add New Comment</button>");
     $("#comments").append("<button data-id='" + data._id + "' id='deletecomment'>Delete Comment</button>");
     
-// If there is a Comment ===================
+// Show anyprevious Comment ===================
     if (data.comment) {
       $("#titleinput").val(data.comment.title);
       $("#bodyinput").val(data.comment.body);
@@ -36,7 +36,7 @@ $.getJSON("/headlines", function(data) {
   });
 });
 
-// POST request to add/change comment =======
+// POST request to add/change Comment =======
 $(document).on("click", "#savecomment", function() {
   var thisId = $(this).attr("data-id");
 
@@ -66,12 +66,11 @@ $(document).on("click", "#deletecomment", function() {
     var thisId = $(this).attr("data-id");
 
     $.ajax({
-      type: "PUT",
+      method: "REMOVE",
       url: "/delete/" + thisId,
 
       success: function(response) {
         thisId.remove();
-
       }
     })
 });
