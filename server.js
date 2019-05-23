@@ -10,7 +10,6 @@ var logger = require("morgan");
 var mongoose = require("mongoose");
 
 // Connect to Mongo DB ============
-// If deployed, use the deployed database. Otherwise use the local mongoHeadlines database
 
 mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true });
 

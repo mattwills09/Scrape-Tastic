@@ -24,4 +24,6 @@ After class and updated instructions for this project to be successfully deploye
 
 -- Had to update the mongoose.connect code in the server.js file.
 
--- Also had to run the heroku addons:create mongolab again, as well as the heroku config:get MONGODB_URI.  However, I did find that that url provided did match the mongoDB link that was already inserted into the project's .env file.
+-- Also, in the command prompt, the heroku addons:create mongoLab, as well as the heroku config:get MONGODB_URI had to be ran and created.  The mongoLab URL link was already provided last night after speaking with Bryan, and that was inserted into the .env file after the mongoLab addon was installed.  However, the config:get still needed to be ran.  Screenshots will be provided below of the deployed link, and the hosted link will be resubmitted.
+
+![scrape-tastic-heroku-link](assets/img/scrape-tastic-heroku-link.jpg)
