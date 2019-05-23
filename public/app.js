@@ -1,5 +1,5 @@
 
-// Get ALL Headlines as json ================
+// Get ALL Headlines (json) ================
 $.getJSON("/headlines", function(data) {
   for (var i = 0; i < data.length; i++) {
     $("#headlines").append("<p data-id='" + data[i]._id + "'>" + data[i].title + "<br />" + data[i].link + "</p>");
@@ -28,7 +28,7 @@ $.getJSON("/headlines", function(data) {
     $("#comments").append("<button data-id='" + data._id + "' id='savecomment'>Add New Comment</button>");
     $("#comments").append("<button data-id='" + data._id + "' id='deletecomment'>Delete Comment</button>");
     
-// Show anyprevious Comment ===================
+// Show any previous Comment ===================
     if (data.comment) {
       $("#titleinput").val(data.comment.title);
       $("#bodyinput").val(data.comment.body);

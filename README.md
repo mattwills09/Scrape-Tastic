@@ -14,3 +14,14 @@ The bugs encountered during this project were mainly with the hosting on heroku,
 
 ![scrape-tastic-comments](assets/img/scrape-tastic-comments.jpg)
 
+//===================================
+
+Update for Heroku deployment issues:
+
+After class and updated instructions for this project to be successfully deployed to heroku, below are changes found:
+
+-- Needed to install the 'dotenv' package, and require it in the server.js file.
+
+-- Had to update the mongoose.connect code in the server.js file.
+
+-- Also had to run the heroku addons:create mongolab again, as well as the heroku config:get MONGODB_URI.  However, I did find that that url provided did match the mongoDB link that was already inserted into the project's .env file.
