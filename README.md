@@ -29,3 +29,20 @@ After class and reading updated instructions for the project to be successfully 
 -- Also, in the command prompt, the heroku addons:create mongoLab, as well as the heroku config:get MONGODB_URI had to be ran and created.  The mongoLab URL link was already provided last night after speaking with Bryan, and that was inserted into the .env file after the mongoLab addon was installed.  However, the config:get still needed to be ran.  Screenshots will be provided below of the deployed link, and the hosted link will be resubmitted.
 ___
 ![scrape-tastic-heroku-link](assets/img/scrape-tastic-heroku-link.jpg)
+___
+
+## Built With
+
+* [HTML]
+* [JavaScript]
+* [jQuery]
+* [Express JS]
+* [Express Handlebars]
+* [Cheerio](https://github.com/cheeriojs/cheerio) - Fast, flexible, and lean implementation of core jQuery designed specifically for the server.
+* [Axios](https://www.npmjs.com/package/axios) - Promise based HTTP client for the browser and node.js
+* [MongoDB]
+* [Mongoose]
+
+## Authors
+
+* **Matt Williams** - *Initial work* - [M Williams Portfolio](https://mattwills09.github.io/portfolio.html)
