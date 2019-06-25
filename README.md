@@ -1,4 +1,4 @@
-# Scrape-Tastic Site
+# A 'Scrape-Tastic' Site
 ___
 
 For this project, we were tasked with using our new found skills of scraping a web page (in a very minimal and nice way), and then giving the user the ability to see the scraped article headlines, click to add and edit comments, and then saving both the links and comments to a Mongo database.  The inclusions and required packages used in this project were Express JS, Express Handlebars, MongooseDB, Cheerio and Axios.  Also used were JavaScript, jQuery and HTML to bring the page together on the front end.
