@@ -1,7 +1,7 @@
 # A 'Scrape-Tastic' Site
 ___
 
-For this project, we were tasked with using our new found skills of scraping a web page (in a very minimal and nice way), and then giving the user the ability to see the scraped article headlines, click to add and edit comments, and then saving both the links and comments to a Mongo database.  The inclusions and required packages used in this project were Express JS, Express Handlebars, MongooseDB, Cheerio and Axios.  Also used were JavaScript, jQuery and HTML to bring the page together on the front end.
+For this project, we were tasked with using our new found skills of scraping a web page (in a very minimal and nice way), and then giving the user the ability to see the scraped article headlines, click to add and edit comments, and then saving both the links and comments to a Mongo database.  The inclusions and required packages used in this project were Express JS, Express Handlebars, MongooseDB, Cheerio and Axios.  Also used were JavaScript, jQuery and HTML to bring the page together on the front end, and lastly Heroku for the web hosting (link found at the bottom of the page).
 
 When the user loads the site, the first page they are brought to is a basic index page with no articles, links or comments.  Then when the user navigates to the site address'/scrape', that will initialize the scrape from a coding/humor site "www.codinghorror.com".  Moving back to the index page, the user will see the articles from the site, and then have the option to follow the link to the article, add a comment that will be saved to the link and the database, and then be able to update or delete the saved comment.  All of these, articles and comments, are saved to a database that was accessed with Robo3T DB as well.
 ___
@@ -42,6 +42,7 @@ ___
 * [Axios](https://www.npmjs.com/package/axios) - Promise based HTTP client for the browser and node.js
 * [MongoDB]
 * [Mongoose]
+* [Heroku](https://infinite-earth-49673.herokuapp.com/) - For Web Hosting
 
 ## Authors
 
